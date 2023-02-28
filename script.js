@@ -28,7 +28,7 @@ function updateTimeBlockByHour () {
 }
   setInterval(updateTimeBlockByHour, 5000);
 
-
+console.log(dayjs().format('h a'));
   $.each(hours, function(index, value ) {
 
     //console.log(HourNow);
