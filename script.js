@@ -14,21 +14,22 @@ setInterval(updateTime, 1000);
 
 
 function updateTimeBlockByHour () {
-  var currhourfromdayjs = dayjs().format('h a');
+
   $('.time-block').each(function() {
+    var currhourfromdayjs = dayjs().format('h-a').split('-');
     var currentHour = $(this).attr('id').split('-');
-    if (currentHour[0] === currhourfromdayjs) {
+    if (currentHour[0] == currhourfromdayjs[0]) {
       $(this).toggleClass('present');
-    }else if(currentHour[0] < currhourfromdayjs){
+    }else if(currentHour[0] < currhourfromdayjs[0]){
       $(this).toggleClass('past');
     }else{
       $(this).toggleClass('future');
     }
   });
 }
-  setInterval(updateTimeBlockByHour, 5000);
 
-console.log(dayjs().format('h a'));
+
+console.log(dayjs().format('ha'));
   $.each(hours, function(index, value ) {
 
     //console.log(HourNow);
