@@ -6,12 +6,38 @@ jQuery(document).ready(function($) {
   var hours = ["9-am", "10-am", "11-am", "12-pm", "1-pm", "2-pm", "3-pm", "4-pm", "5-pm", "6-pm", "7-pm", "8-pm", "9-pm", "10-pm", "11-pm"];
   var allButtons = $('.time-block button');
  
+ function updateTime(){
+  var headerDayInfo = $('#currentDay');
+  headerDayInfo.text(dayjs().format('dddd, MMMM YYYY - h:mm:ss a'));
+ }
+setInterval(updateTime, 1000);
+
+
+function updateTimeBlockByHour () {
+  var currhourfromdayjs = dayjs().format('h a');
+  $('.time-block').each(function() {
+    var currentHour = $(this).attr('id').split('-');
+    if (currentHour === currhourfromdayjs) {
+      $(this).toggleClass('present');
+    }else if(currentHour < currhourfromdayjs){
+      $(this).toggleClass('past');
+    }else{
+      $(this).toggleClass('future');
+    }
+  });
+}
+  setInterval(updateTimeBlockByHour, 5000);
+
 
   $.each(hours, function(index, value ) {
-    var currenthour = value.split('-');
+
+    //console.log(HourNow);
+
+    var thehour = value.split('-');
+ 
     var thehtmlContent = '';
-    thehtmlContent += '<div id="hour-'+ currenthour[0] +'" class="row time-block">';
-    thehtmlContent += '<div class="col-2 col-md-1 hour text-center py-3">'+ currenthour[0]  + currenthour[1].toUpperCase()  +'</div>';
+    thehtmlContent += '<div id="hour-'+ thehour[0] +'" class="row time-block">';
+    thehtmlContent += '<div class="col-2 col-md-1 hour text-center py-3">'+ thehour[0]  + thehour[1].toUpperCase()  +'</div>';
     thehtmlContent += '<textarea class="col-8 col-md-10 description" rows="3"> </textarea>';
     thehtmlContent += '<button class="col-2 col-md-1 saveBtn btn btn-primary">  <i class="fas fa-save" aria-hidden="true"></i></button>';
     thehtmlContent += '</div>';
