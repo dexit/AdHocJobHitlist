@@ -11,14 +11,14 @@ jQuery(document).ready(function($) {
  
 
   $.each(hours, function(index, value ) {
-    var currenthour = split('-',value);
+    var currenthour = value.split('-');
     var thehtmlContent;
     thehtmlContent += '<div id="hour-'+ currenthour[0] +'" class="row time-block">';
     thehtmlContent += '<div class="col-2 col-md-1 hour text-center py-3">'+ currenthour[0]  + currenthour[1].toUpperCase()  +'</div>';
     thehtmlContent += '<textarea class="col-8 col-md-10 description" rows="3"> </textarea>';
     thehtmlContent += '<button class="col-2 col-md-1 saveBtn btn btn-primary">  <i class="fas fa-save" aria-hidden="true"></i></button>';
     thehtmlContent += '</div>';
-    $(".container-fluid.px-5").append();
+    $(".container-fluid.px-5").append(thehtmlContent);
 });
 
   allButtons.on('click', function() {
