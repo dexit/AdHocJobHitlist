@@ -4,20 +4,18 @@
 
 jQuery(document).ready(function($) {
   var hours = ["9-am", "10-am", "11-am", "12-pm", "1-pm", "2-pm", "3-pm", "4-pm", "5-pm", "6-pm", "7-pm", "8-pm", "9-pm", "10-pm", "11-pm"];
-  var savebuttonPast = $('.past button.saveBtn');
-  var savebuttonPresent = $('.present button.saveBtn');
-  var savebuttonFuture = $('.future button.saveBtn');
   var allButtons = $('.time-block button');
  
 
   $.each(hours, function(index, value ) {
     var currenthour = value.split('-');
-    var thehtmlContent;
+    var thehtmlContent = '';
     thehtmlContent += '<div id="hour-'+ currenthour[0] +'" class="row time-block">';
     thehtmlContent += '<div class="col-2 col-md-1 hour text-center py-3">'+ currenthour[0]  + currenthour[1].toUpperCase()  +'</div>';
     thehtmlContent += '<textarea class="col-8 col-md-10 description" rows="3"> </textarea>';
     thehtmlContent += '<button class="col-2 col-md-1 saveBtn btn btn-primary">  <i class="fas fa-save" aria-hidden="true"></i></button>';
     thehtmlContent += '</div>';
+    //console.log(thehtmlContent);
     $(".container-fluid.px-5").append(thehtmlContent);
 });
 
