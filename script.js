@@ -17,9 +17,9 @@ function updateTimeBlockByHour () {
   var currhourfromdayjs = dayjs().format('h a');
   $('.time-block').each(function() {
     var currentHour = $(this).attr('id').split('-');
-    if (currentHour === currhourfromdayjs) {
+    if (currentHour[0] === currhourfromdayjs) {
       $(this).toggleClass('present');
-    }else if(currentHour < currhourfromdayjs){
+    }else if(currentHour[0] < currhourfromdayjs){
       $(this).toggleClass('past');
     }else{
       $(this).toggleClass('future');
