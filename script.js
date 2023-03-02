@@ -94,7 +94,7 @@ var getPreviousUntil = function (elem, selector) {
     thehtmlContent += '</div>';
     //console.log(thehtmlContent);
     $(".container-fluid.px-5").append(thehtmlContent);
-    
+
     if(index === (hours.length - 1)) {
       var targeto = document.querySelector(".present");
     $.each(getPreviousUntil(targeto) , function(index, value ) {
@@ -103,6 +103,8 @@ var getPreviousUntil = function (elem, selector) {
     $.each( getNextUntil(targeto) , function(index, value ) {
       $(this).addClass('future');
     });
+
+    
  
 }else{
   // have pitty on my soul :D
