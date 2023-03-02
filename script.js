@@ -3,14 +3,24 @@
 // in the html.
 
 jQuery(document).ready(function($) {
+  // setting up the "hours" variable to hold all hours i wish to have available for entries
   var hours = ["9-am", "10-am", "11-am", "12-pm", "1-pm", "2-pm", "3-pm", "4-pm", "5-pm", "6-pm", "7-pm", "8-pm", "9-pm", "10-pm", "11-pm"];
+  // Setting up the allButtons variable, and it selects with help of jquery a css selector of all timeblocks and their buttons, may be called a wildcard, or a wide selector.
   var allButtons = $('.time-block button');
+
+
+  // This is showing the current day in full day name format "dddd"
+function updateTime(magic){
+  // create a function to grab the selector to use.
+    var headerDayInfo = $(magic);
+    //headerDayInfo.text(dayjs().format('dddd, MMMM YYYY - h:mm:ss a'));
+    headerDayInfo.text(dayjs().format('dddd'));
+   }
+  //setInterval(updateTime, 1000);
+updateTime('#currentDay');
+
+
  
- function updateTime(){
-  var headerDayInfo = $('#currentDay');
-  headerDayInfo.text(dayjs().format('dddd, MMMM YYYY - h:mm:ss a'));
- }
-setInterval(updateTime, 1000);
 
 
 function updateTimeBlockByHour () {
