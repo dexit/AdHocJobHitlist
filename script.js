@@ -32,7 +32,7 @@ function updateTimeBlockByHour () {
 console.log(dayjs().format('ha'));
   $.each(hours, function(index, value ) {
 
-    //console.log(HourNow);
+    //sssconsole.log(HourNow);
 
     var thehour = value.split('-');
  
