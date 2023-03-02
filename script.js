@@ -17,13 +17,13 @@ function updateTime(magic){
    }
 updateTime('#currentDay');
   
-  function updateTime(){
+  function timestampedBonus(){
     // create a function to grab the selector to use.
   var headerTimeStamp = $('#currentTimesTamp');
-  headerTimeStamp.text(dayjs().format('dddd, MMMM YYYY - h:mm:ss a'));
+  headerTimeStamp.text(dayjs().format('DD, MMMM YYYY - h:mm:ss a'));
 
      }
-setInterval(updateTime, 1000);
+setInterval(timestampedBonus, 1000);
  
 
 // The below sourced from : https://gomakethings.com/how-to-get-all-siblings-of-an-element-until-a-selector-is-found-with-vanilla-js/
