@@ -6,20 +6,24 @@ jQuery(document).ready(function($) {
   // setting up the "hours" variable to hold all hours i wish to have available for entries
   var hours = ["12-am","1-am","2-am","3-am","4-am","5-am","6-am","7-am","8-am","9-am", "10-am", "11-am", "12-pm", "1-pm", "2-pm", "3-pm", "4-pm", "5-pm", "6-pm", "7-pm", "8-pm", "9-pm", "10-pm", "11-pm"];
   // Setting up the allButtons variable, and it selects with help of jquery a css selector of all timeblocks and their buttons, may be called a wildcard, or a wide selector.
-  var allButtons = $('.time-block button');
+
 
 
   // This is showing the current day in full day name format "dddd"
 function updateTime(magic){
   // create a function to grab the selector to use.
     var headerDayInfo = $(magic);
-    //headerDayInfo.text(dayjs().format('dddd, MMMM YYYY - h:mm:ss a'));
     headerDayInfo.text(dayjs().format('dddd'));
    }
-  //setInterval(updateTime, 1000);
 updateTime('#currentDay');
+  
+  function updateTime(){
+    // create a function to grab the selector to use.
+  var headerTimeStamp = $('#currentTimesTamp');
+  headerTimeStamp.text(dayjs().format('dddd, MMMM YYYY - h:mm:ss a'));
 
-
+     }
+setInterval(updateTime, 1000);
  
 
 // The below sourced from : https://gomakethings.com/how-to-get-all-siblings-of-an-element-until-a-selector-is-found-with-vanilla-js/
@@ -82,14 +86,24 @@ var getPreviousUntil = function (elem, selector) {
     var hourNow = dayjs().format('h-a');
     var timetraveled = '';
 
+      var HelperForTheHourIDtoSet = 'hour-'+ theHourSplit[0];
+      var HelperForTheHourIDtoGetFromLocalStorage = function (datt){
+        return localStorage.getItem(datt);
+      }
     var thehtmlContent = '';
     if(hourNow === value){ 
       timetraveled = 'present';
     }
 
-    thehtmlContent += '<div id="hour-'+ theHourSplit[0] +'" class="row time-block '+ timetraveled +' index-' + index + '">';
+    thehtmlContent += '<div id="'+ HelperForTheHourIDtoSet +'" class="row time-block '+ timetraveled +' index-' + index + '">';
     thehtmlContent += '<div class="col-2 col-md-1 hour text-center py-3">'+ value.toUpperCase()  +'</div>';
-    thehtmlContent += '<textarea class="col-8 col-md-10 description" rows="3"> </textarea>';
+    thehtmlContent += '<textarea class="col-8 col-md-10 description" rows="3"> '
+    if(HelperForTheHourIDtoGetFromLocalStorage(HelperForTheHourIDtoSet)){
+      thehtmlContent += HelperForTheHourIDtoGetFromLocalStorage(HelperForTheHourIDtoSet);
+    }else{
+      thehtmlContent += 'No Tasks';
+    }
+    thehtmlContent +=  '</textarea>';
     thehtmlContent += '<button class="col-2 col-md-1 saveBtn btn btn-primary">  <i class="fas fa-save" aria-hidden="true"></i></button>';
     thehtmlContent += '</div>';
     //console.log(thehtmlContent);
@@ -111,6 +125,8 @@ var getPreviousUntil = function (elem, selector) {
 }
 });
 
+
+var allButtons = $('.time-block button');
   allButtons.each(function(){
     $(this).on('click', function() {
     var text = $(this).siblings('.description').val();
