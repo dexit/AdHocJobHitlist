@@ -1,5 +1,9 @@
 # AdHocJobHitlist
 
+` Repo Url: https://github.com/dexit/AdHocJobHitlist `
+
+`Live Deployed Url: https://dexit.github.io/AdHocJobHitlist/`
+
 This code is a JavaScript program that creates a daily planner with time slots for each hour of the day. It utilizes the jQuery library and the dayjs library to format and display the current day and time.
 
 The program begins by creating an array called "hours" that contains strings representing each hour of the day in AM/PM format.
