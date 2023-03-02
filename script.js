@@ -104,23 +104,24 @@ var getPreviousUntil = function (elem, selector) {
       $(this).addClass('future');
     });
 
-    
+
  
 }else{
   // have pitty on my soul :D
 }
 });
 
-  allButtons.on('click', function() {
+  allButtons.each(function(){
+    $(this).on('click', function() {
     var text = $(this).siblings('.description').val();
     var parentTime = $(this).parent().attr('id');
     localStorage.setItem(parentTime, text);
    // console.log(text);
-    console.log(parentTime);
-    console.log( localStorage.getItem(parentTime));
+    console.log(parentTime, text);
+    console.log( 'Getting local storage ' + localStorage.getItem(parentTime));
   });
 
- 
+});
 });
 //$(function () {
   // TODO: Add a listener for click events on the save button.
