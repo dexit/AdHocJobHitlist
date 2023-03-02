@@ -88,7 +88,12 @@ var getPreviousUntil = function (elem, selector) {
 
       var HelperForTheHourIDtoSet = 'hour-'+ theHourSplit[0];
       var HelperForTheHourIDtoGetFromLocalStorage = function (datt){
-        return localStorage.getItem(datt);
+        if(datt){ 
+          return localStorage.getItem(datt);
+        }else{
+          console.log('could not find local storage by hour id');
+          return;
+        }
       }
     var thehtmlContent = '';
     if(hourNow === value){ 
