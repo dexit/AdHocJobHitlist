@@ -102,11 +102,12 @@ var getPreviousUntil = function (elem, selector) {
 
     thehtmlContent += '<div id="'+ HelperForTheHourIDtoSet +'" class="row time-block '+ timetraveled +' index-' + index + '">';
     thehtmlContent += '<div class="col-2 col-md-1 hour text-center py-3">'+ value.toUpperCase()  +'</div>';
-    thehtmlContent += '<textarea class="col-8 col-md-10 description" rows="3"> '
+    thehtmlContent += '<textarea class="col-8 col-md-10 description" rows="3" placeholder="No tasks set, add your task"> '
     if(HelperForTheHourIDtoGetFromLocalStorage(HelperForTheHourIDtoSet)){
       thehtmlContent += HelperForTheHourIDtoGetFromLocalStorage(HelperForTheHourIDtoSet);
     }else{
-      thehtmlContent += 'No Tasks';
+     // thehtmlContent += 'No Tasks';
+     // replaced the "no tasks value with a placeholder
     }
     thehtmlContent +=  '</textarea>';
     thehtmlContent += '<button class="col-2 col-md-1 saveBtn btn btn-primary">  <i class="fas fa-save" aria-hidden="true"></i></button>';
