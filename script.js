@@ -137,18 +137,8 @@ var allButtons = $('.time-block button');
     $(this).on('click', function() {
     var text = $(this).siblings('.description').val();
     var parentTime = $(this).parent().attr('id');
-    var taskObj = {
-        taskListData : {
-           year: dayjs().format('YYYY'),
-           month: dayjs().format('M'),
-           day: dayjs().format('D'),
-           task: {
-              hour: parentTime,
-              text: text,
-            },
-        },
-      };
- localStorage.setItem('adhoclistdb',JSON.stringify(taskObj));
+
+ //localStorage.setItem("" + dayjs().format("YYYY-MM-DD") + "", {parentTime: text});
     localStorage.setItem(parentTime, text);
    // console.log(text);
       //    console.log(JSON.stringify(taskObj));
