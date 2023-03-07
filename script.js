@@ -86,7 +86,8 @@ var getPreviousUntil = function (elem, selector) {
     var hourNow = dayjs().format('h-a');
     var timetraveled = '';
 
-      var HelperForTheHourIDtoSet = 'hour-'+ theHourSplit[0];
+      //var HelperForTheHourIDtoSet = 'hour-'+ theHourSplit[0];
+    var HelperForTheHourIDtoSet = 'hour-'+ value;
       var HelperForTheHourIDtoGetFromLocalStorage = function (datt){
         if(datt){ 
           return localStorage.getItem(datt);
