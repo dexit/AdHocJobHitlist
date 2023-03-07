@@ -137,8 +137,21 @@ var allButtons = $('.time-block button');
     $(this).on('click', function() {
     var text = $(this).siblings('.description').val();
     var parentTime = $(this).parent().attr('id');
+    var taskObj = {
+        taskListData : {
+           year: dayjs().format('YYYY'),
+           month: dayjs().format('M'),
+           day: dayjs().format('D'),
+           task: {
+              hour: parentTime,
+              text: text,
+            },
+        },
+      };
+ localStorage.setItem(taskObj);
     localStorage.setItem(parentTime, text);
    // console.log(text);
+          console.log(taskObj);
     console.log(parentTime, text);
     console.log( 'Getting local storage ' + localStorage.getItem(parentTime));
   });
