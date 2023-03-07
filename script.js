@@ -148,10 +148,10 @@ var allButtons = $('.time-block button');
             },
         },
       };
- localStorage.setItem(taskObj);
+ localStorage.setItem('adhoclistdb',JSON.stringify(taskObj));
     localStorage.setItem(parentTime, text);
    // console.log(text);
-          console.log(taskObj);
+      //    console.log(JSON.stringify(taskObj));
     console.log(parentTime, text);
     console.log( 'Getting local storage ' + localStorage.getItem(parentTime));
   });

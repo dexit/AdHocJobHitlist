@@ -19,3 +19,5 @@ The program then loops through each hour in the "hours" array and generates HTML
 If the current hour is equal to the looped hour, the time slot is given a class of "present". The program then utilizes the "getNextUntil" and "getPreviousUntil" functions to add classes of "past" and "future" to the appropriate time slots based on their relationship to the "present" time slot.
 
 Finally, event listeners are added to each save button in the time slots to save any entered tasks to the local storage.
+
+![Drag Racing](dexit.github.io_AdHocJobHitlist_.png)
